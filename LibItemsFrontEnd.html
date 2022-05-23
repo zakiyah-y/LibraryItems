@@ -652,7 +652,7 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(newItem),
         };
-        fetch("http://localhost:5129/LibraryItem", requestOptions)
+        fetch("http://localhost:5000/LibraryItem", requestOptions)
           // get the JSON content from the response
           .then((response) => {
             if (!response.ok) {
@@ -669,7 +669,7 @@
 
       // Load the list - expecting an array of todo_items to be returned
       function readLibItems() {
-        fetch("http://localhost:5129/LibraryItem")
+        fetch("http://localhost:5000/LibraryItem")
           // get the JSON content from the response
           .then((response) => {
             if (!response.ok) {
@@ -690,7 +690,7 @@
           body: JSON.stringify(item),
         };
         fetch(
-          "http://localhost:5129/LibraryItem/" + item.id,
+          "http://localhost:5000/LibraryItem/" + item.id,
           requestOptions
         ).then((response) => {
           if (!response.ok) {
@@ -701,7 +701,7 @@
       }
 
       function deleteLibItem(libItemId) {
-        fetch("http://localhost:5129/LibraryItem/" + libItemId, {
+        fetch("http://localhost:5000/LibraryItem/" + libItemId, {
           method: "DELETE",
         }).then((response) => {
           if (!response.ok) {
