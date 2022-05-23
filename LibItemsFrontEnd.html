@@ -290,14 +290,13 @@
         text-transform: capitalize;
         font-size: 16px;
         padding: 5px;
-       /* margin-top: 25px; */
-       width: 406px;
-        
+        /* margin-top: 25px; */
+        width: 406px;
       }
       .search-container {
-
         padding-top: 21px;
         padding-bottom: 55px;
+        border-bottom: 1px solid white;
       }
       #searchbar:focus-visible {
         outline: 2px solid #647295;
@@ -307,7 +306,6 @@
       }
       .header-container {
         display: flex;
-
       }
       .search-container label {
         margin-left: 34px;
@@ -398,28 +396,25 @@
 ---------------------------------------------------------------------------------------->
     <div class="libraryItemList">
       <br />
-     
+
       <div class="header-div" onclick="showList()">
         <img class="arrow-right2" src="./images/chevron_right.svg" />
-          <img hidden class="arrow-down2" src="./images/chevron_down.svg" />
+        <img hidden class="arrow-down2" src="./images/chevron_down.svg" />
         <h3 class="list-header">MY LIST OF LIBRARY BOOKS</h3>
       </div>
-      
+
       <ul hidden id="libItemList" class="item-list">
         <div class="search-container">
-          <label for="search"
-          >Search</label
-        >
-        <br />
-       
-        <input
-          id="searchbar"
-          onkeyup="search_libitems()"
-          type="text"
-          name="search"
-        
-        />
-      </div> 
+          <label for="search">Search</label>
+          <br />
+
+          <input
+            id="searchbar"
+            onkeyup="search_libitems()"
+            type="text"
+            name="search"
+          />
+        </div>
         <!-- This list is empty at start and is populated by the readLibItems() function
          called by the onload trigger (see the body element above)
      -->
@@ -445,9 +440,8 @@
           txtValue = x.textContent || x.innerText;
 
           if (txtValue.toUpperCase().indexOf(filter) > -1) {
-         
-             li[i].style.display = "";
-          //  li[i].classList.toggle("show");
+            li[i].style.display = "";
+            //  li[i].classList.toggle("show");
           } else {
             // ul.classList.toggle("hide-list-item");
             li[i].style.display = "none";
@@ -479,8 +473,8 @@
           showForm.item(i).classList.toggle("show");
         }
       }
-        
-        function showList() {
+
+      function showList() {
         var element2 = document.getElementsByClassName("arrow-right2");
 
         //call the item to access an element by its index
@@ -494,13 +488,13 @@
         for (let i = 0; i < arrowDown2.length; i += 1) {
           arrowDown2.item(i).classList.toggle("show");
         }
-   
+
         var showList = document.getElementsByClassName("item-list");
         for (let i = 0; i < showList.length; i += 1) {
           showList.item(i).classList.toggle("show");
         }
       }
-    
+
       /****************************************************************************
        * Add a new TodoItem.
        *
@@ -611,11 +605,12 @@
           }
         };
 
+        //if an item is ticked off, assumes the user no longer has the book and so length of booking is no longer needed
         libItemNode.onclick = function () {
-          if (item["status"] === "NEW") {
-            item["status"] = "DONE";
+          if (item["lengthOfBooking"] !== 0) {
+            item["lengthOfBooking"] = 0;
           } else {
-            item["status"] = "NEW";
+            item["lengthOfBooking"] = item.lengthOfBooking;
           }
 
           updateLibItem(item);
