@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="copyright" content="QA http://www.qa.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+
+    <title>Library Items</title>
+
+    <style>
+      body {
+        /* margin: 0; */
+        margin-left: 34px;
+        min-width: 720px;
+        font-family: "Century Gothic", "Arial", "sans-serif";
+        background-color: #f2ebe5;
+        color: #647295;
+      }
+
+      /* Include the padding and border in an element's total width and height */
+      * {
+        box-sizing: border-box;
+      }
+
+      /*********************************************
+         * Header
+         ********************************************/
+      .header {
+        /* background-color: black; */
+        /* height: 180px; */
+        color: #647295;
+        /* padding: 10px; */
+        margin-left: 21px;
+        font-family: "Century Gothic", "Arial", "sans-serif";
+        font-size: 21px;
+      }
+
+      input {
+        margin: 0;
+        border: 1px solid #647295;
+        border-radius: 5px;
+        /* padding: 10px; */
+        float: left;
+        font-size: 16px;
+        font-family: "Century Gothic", "Arial", "sans-serif";
+        color: #647295;
+      }
+
+      .addButton {
+        float: left;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .addButton:hover {
+        background-color: #647295;
+      }
+
+      label {
+        /* float: left;
+        padding: 10px; */
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+
+      /*********************************************
+         * LIB ITEMS List
+         ********************************************/
+
+      /* Remove margins and padding from the ul element (unordered lis)  so that the list is flushed with the
+           browser borders instead of leaving a gap */
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Each li element with the ul will hold a lib item */
+      ul li {
+        cursor: pointer;
+        /* padding-right: 21px; */
+        list-style-type: none;
+        /* margin-left: 60px; */
+        /* background: #eee; */
+        font-size: 16px;
+        text-transform: uppercase;
+        padding-left: 30px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 21px;
+        font-family: "Century Gothic", "Arial", "sans-serif";
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Set all odd list items to a different background colour (zebra-stripes) */
+      /* ul li:nth-child(odd) {
+        background: #f9f9f9;
+      } */
+
+      /*  background-color on hover */
+      ul li:hover {
+        /* background: #f2ebe5; */
+        /* border-radius: 5px; */
+        /* height: 1px;
+        width: 500px;
+      /*  padding: 10px; */
+        background-color: #f2ebe5;
+        /* border: white;
+      border-width: 3px;  */
+      }
+
+      /* When clicked on, change the background colour and strike out text */
+      ul li.checked {
+        background: #888;
+        color: #f2ebe5;
+        text-decoration: line-through;
+      }
+
+      /* CSS style to hide the "tick" symbol if an item status is not set to "DONE"
+           This is done in code - see the addLibItemToDisplay() function where the element is classList.toggle() */
+      .tickHidden {
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px;
+        visibility: hidden;
+      }
+
+      /* When clicked on, also show the "tick" symbol.  Again this is done in code.
+           see the addLibItemToDisplay() function  */
+      .tickVisible {
+        visibility: visible;
+      }
+
+      .close {
+        /* padding-left: 5px;
+        padding-right: 5px; */
+        float: right;
+        /* width: 34px; */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      
+      }
+      .close img {
+
+        width: 25px;
+        height: 25px;
+      }
+
+      /* This adds a hover selector to the close class. That is any elements attached to the close class with change to
+           a RED with WHITE background.  In this case, this will be the close "button" for each of the lib item
+        */
+      .close:hover {
+        /* background-color: white; */
+        /* border: #2b262d solid 2px; */
+        /* display: flex;
+        justify-content: center; */
+       /* height: 30px;
+        width: 30px;  */
+     
+        /* border-radius: 3px;  */
+      }
+      .subtitle {
+        font-size: 17px;
+        padding-left: 5px;
+        /* padding-top: 21px; */
+      }
+      /* .inputLabel {
+        font-size: 14px;
+       
+      } */
+      .inputText {
+        border-radius: 8px;
+        border: none;
+        width: 406px;
+        height: 38px;
+        color: #647295;
+      }
+      .inputText:focus-visible {
+        outline: 2px solid #647295;
+      }
+      .textArea {
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-family: "Century Gothic", "Arial", "sans-serif";
+        color: #647295;
+        max-width: 406px;
+      }
+      .textArea:focus-visible {
+        outline: 2px solid #647295;
+      }
+      .addButton {
+        background-color: #2b262d;
+        color: #f2ebe5;
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 406px;
+        height: 38px;
+        align-items: center;
+        margin-top: 13px;
+      }
+      .libraryItemList {
+        color: #647295;
+        margin-left: 21px;
+        margin-top: 34px;
+        background-color: rgba(100, 114, 149, 0.17);
+        border-radius: 10px;
+        padding-bottom: 21px;
+        margin-right: 34px;
+      }
+      .addItemBg {
+        color: #647295;
+        margin-left: 21px;
+        margin-top: 55px;
+        background-color: rgba(100, 114, 149, 0.17);
+        border-radius: 10px;
+        padding-bottom: 75px;
+        width: 525px;
+      }
+      .list-header {
+        padding-left: 5px;
+      }
+      ul li p {
+        color: #9f496e !important;
+      }
+      .header-div {
+        display: flex;
+        align-items: center;
+        margin-left: 21px;
+        padding-top: 13px;
+        cursor: pointer;
+      }
+      .arrow-right {
+        width: 20px;
+        height: 20px;
+      }
+      .arrow-down {
+        width: 20px;
+        height: 20px;
+        /* margin-left: -34px; */
+        /* display: block; */
+      }
+      .hide {
+        display: none;
+      }
+      .show {
+        display: block;
+      }
+      ul li {
+        border-bottom: #f2ebe5 solid 1px;
+      }
+      .small-text {
+        font-size: 14px;
+        /* margin-left: 55px; */
+      }
+      #form1 {
+        padding-left: 55px;
+      }
+      .blob-container {
+        display: table-caption;
+      }
+      .blob {
+        width: 350px;
+        height: 250px;
+        float: right;
+        margin-top: -34%;
+        margin-right: 8%;
+      }
+      .bio {
+       font-size: 16px;
+       margin-top: -13px;
+       margin-bottom: -21px;
+      
+       
+        /* position:static; */
+      }
+    </style>
+  </head>
+
+  <!---------------------------------------------------------------------------------------
+  A onload trigger is added to the body which will call the readLibItems() function
+  which will in turn send a REST API GET request to the microservice to read the lib list
+  from the DB
+---------------------------------------------------------------------------------------->
+  <body onload="readLibItems()">
+    <!---------------------------------------------------------------------------------------
+  This is the Header
+---------------------------------------------------------------------------------------->
+    <div class="header">
+      <h1>My Library Books</h1>
+      <p class="bio">
+        &#128515; Have fun
+      </p>
+    </div>
+    <!-- <p> Please note all library items have a 7 day default booking period</p> -->
+    <!-- <hr /> -->
+    <div>
+      <div class="addItemBg">
+        <div class="header-div" onclick="showList()">
+          <img class="arrow-right" src="./images/chevron_right.svg" />
+          <img hidden class="arrow-down" src="./images/chevron_down.svg" />
+          <h3 class="subtitle">ADD A NEW ITEM</h3>
+        </div>
+        <form
+          autocomplete="off"
+          hidden
+          class="add-item-form"
+          id="form1"
+          action="javascript:addNewLibItem()"
+        >
+          <p class="small-text">
+            Fields marked with an asterisk (*) are required
+          </p>
+          <label for="newLibItemName">NAME*</label><br />
+          <input
+            type="text"
+            id="newLibItemName"
+            value=""
+            class="inputText"
+          /><br />
+
+          <br />
+          <label for="newLibItemDesc"> Description*</label>
+          <br />
+          <!-- <label for="newLibItemDesc"> Description: </label> -->
+          <textarea id="newLibItemDesc" rows="4" cols="53" class="textArea">
+          </textarea>
+          <br />
+          <label for="newLibItemLocation">Location checked out from*</label>
+          <br />
+          <input type="text" id="newLibItemLocation" class="inputText" />
+          <br />
+          <br />
+
+          <label for="newLibItemLengthOfBooking"
+            >Length of booking (in days)*</label
+          >
+          <br />
+          <input
+            type="number"
+            id="newLibItemLengthOfBooking"
+            class="inputText"
+          />
+          <br />
+          <br />
+
+          <div>
+            <input type="submit" value="Add Item" class="addButton" />
+          </div>
+        </form>
+      </div>
+      <!-- <div class="bio-container">
+
+        <p class="bio">
+          &#128515; <br> Have fun
+        </p>
+      </div> -->
+    </div>
+
+    <!---------------------------------------------------------------------------------------
+  HTML element to hold the libraryList.  This is where all the library items will be displayed
+---------------------------------------------------------------------------------------->
+    <div class="libraryItemList">
+      <br />
+      <ul id="libItemList">
+        <div class="header-div">
+          <!-- <img class="arrow-right" src="./images/chevron_right.svg" />
+          <img hidden class="arrow-down" src="./images/chevron_down.svg" /> -->
+          <h3 class="list-header">MY LIST OF LIBRARY BOOKS</h3>
+        </div>
+        <!-- This list is empty at start and is populated by the readLibItems() function
+         called by the onload trigger (see the body element above)
+     -->
+ 
+      </ul>
+    </div>
+
+    <!---------------------------------------------------------------------------------------
+  Scripts
+---------------------------------------------------------------------------------------->
+    <script>
+      function showList() {
+        console.log("try a click");
+        var element = document.getElementsByClassName("arrow-right");
+
+        //call the item to access an element by its index
+        for (let i = 0; i < element.length; i += 1) {
+          element.item(i).classList.toggle("hide");
+          //hide the right arrow
+        }
+
+        var arrowDown = document.getElementsByClassName("arrow-down");
+
+        for (let i = 0; i < arrowDown.length; i += 1) {
+          arrowDown.item(i).classList.toggle("show");
+        }
+        //hide/show the form
+        var showForm = document.getElementsByClassName("add-item-form");
+        for (let i = 0; i < showForm.length; i += 1) {
+          showForm.item(i).classList.toggle("show");
+        }
+      }
+      /****************************************************************************
+       * Add a new TodoItem.
+       *
+       * 1) send an update to the DB
+       * 2) if successful then add the item to the list
+       ****************************************************************************/
+
+      function addNewLibItem(newItemValue) {
+        // Get the value from the Input field in the FORM
+        let libItemValue = document
+          .getElementById("newLibItemName")
+          .value.trim();
+        let libItemDescValue = document
+          .getElementById("newLibItemDesc")
+          .value.trim();
+        let libItemLengthValue = document
+          .getElementById("newLibItemLengthOfBooking")
+          .value.trim();
+        let libItemLocValue = document
+          .getElementById("newLibItemLocation")
+          .value.trim();
+        // Check that a value have added
+        if (libItemValue === "") {
+          alert("Please fill in all fields");
+        } else {
+          alert("Item has been added :)");
+        }
+        createLibItem(
+          libItemValue,
+          libItemDescValue,
+          libItemLengthValue,
+          libItemLocValue
+        );
+        //clear all the fields here
+        document.getElementById("newLibItemName").value = "";
+        document.getElementById("newLibItemDesc").value = "";
+        document.getElementById("newLibItemLengthOfBooking").value = "";
+        document.getElementById("newLibItemLocation").value = "";
+      }
+
+      /****************************************************************************
+       * This function will add the a new todo item to the UL element
+       * Specifically this will add:
+       *
+       *   <li>the item description<span class="close">X</>li>
+       *
+       * 1) add to DB
+       * 2) if successful then add the item to the list
+       *
+       ****************************************************************************/
+      function addLibItemToDisplay(item) {
+        //log to console to see what's inside item object
+        //  console.log(item)
+        let libItemNode = document.createElement("li");
+        let descriptionTextNode = document.createTextNode(item["name"]);
+        libItemNode.appendChild(descriptionTextNode);
+
+        //create a p within the list so that i can style it
+        const para = document.createElement("p");
+        para.innerText = "BOOKED FOR: ";
+        libItemNode.appendChild(para);
+
+        // const days = document.createElement('p')
+        // days.innerText = `item["lengthofBooking"] + " DAYS"`
+        // libItemNode.appendChild(days)
+
+        let description2TextNode = document.createTextNode(
+          item["lengthOfBooking"] + " DAYS"
+        );
+        libItemNode.appendChild(description2TextNode);
+
+        document.getElementById("libItemList").appendChild(libItemNode);
+
+        let tickSpanNode = document.createElement("SPAN");
+        let tickText = document.createTextNode("\u2713"); // \u2713 is unicode for the tick symbol
+        tickSpanNode.appendChild(tickText);
+        libItemNode.appendChild(tickSpanNode);
+        tickSpanNode.className = "tickHidden";
+
+        let closeSpanNode = document.createElement("SPAN");
+
+        
+
+        const closeText = document.createElement("img");
+        closeText.src = "./images/delete_item.svg";
+        closeSpanNode.appendChild(closeText);
+
+        // let closeText = document.createTextNode("X");
+        closeSpanNode.className = "close";
+        // closeSpanNode.appendChild(closeText);
+        libItemNode.appendChild(closeSpanNode);
+
+
+        closeSpanNode.onclick = function (event) {
+          // When the use press the "X" button, the click event is normally also passed to its parent element.
+          // (i.e. the element containing the <SPAN>). In the case the LI element that is holding the TodoItem
+          // which would have resulted in a toggle of item between "DONE" and "NEW"
+          //
+          // stopPropagation() tells the event not to propagate
+          event.stopPropagation();
+
+          if (
+            confirm("Are you sure that you want to delete " + item.name + "?")
+          ) {
+            deleteLibItem(item["id"]);
+
+            // Remove the HTML list element that is holding this todo item
+            libItemNode.remove();
+          }
+        };
+
+        libItemNode.onclick = function () {
+          if (item["status"] === "NEW") {
+            item["status"] = "DONE";
+          } else {
+            item["status"] = "NEW";
+          }
+
+          updateLibItem(item);
+
+          // }
+
+          libItemNode.classList.toggle("checked");
+          tickSpanNode.classList.toggle("tickVisible");
+        };
+
+        // if (item["status"] !== "NEW") {
+        //     libItemNode.classList.toggle("checked");
+        //     tickSpanNode.classList.toggle("tickVisible");
+        // }
+      }
+
+      /****************************************************************************
+       * CRUD functions calling the REST API
+       ****************************************************************************/
+
+      function createLibItem(
+        libItemName,
+        libItemDescription,
+        libLength,
+        libLocation
+      ) {
+        // Create a new JSON object for the new item with the status of NEW
+        // Since the id is generated by the microservice, we will use -1 as a dummy
+        // If the POST is successful the microservice will store the new item in the database
+        // and returns a JSON via the response with the generated id for the new item
+        const newItem = {
+          name: libItemName,
+          description: libItemDescription,
+          location: libLocation,
+          lengthOfBooking: libLength,
+        };
+        const requestOptions = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newItem),
+        };
+        fetch("http://localhost:5129/LibraryItem", requestOptions)
+          // get the JSON content from the response
+          .then((response) => {
+            if (!response.ok) {
+              alert(
+                "An error has occurred.  Unable to create the library item"
+              );
+              throw response.status;
+            } else return response.json();
+          })
+
+          // add the item to the UL element so that it will appear in the browser
+          .then((item) => addLibItemToDisplay(item));
+      }
+
+      // Load the list - expecting an array of todo_items to be returned
+      function readLibItems() {
+        fetch("http://localhost:5129/LibraryItem")
+          // get the JSON content from the response
+          .then((response) => {
+            if (!response.ok) {
+              alert("An error has occurred.  Unable to read the library list");
+              throw response.status;
+            } else return response.json();
+          })
+          // Add the items to the UL element so that it can be seen
+          // As items is an array, we will the array.map function to through the array and add item to the UL element
+          // for display
+          .then((items) => items.map((item) => addLibItemToDisplay(item)));
+      }
+
+      function updateLibItem(item) {
+        const requestOptions = {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(item),
+        };
+        fetch(
+          "http://localhost:5129/LibraryItem/" + item.id,
+          requestOptions
+        ).then((response) => {
+          if (!response.ok) {
+            alert("An error has occurred.  Unable to UPDATE the library item");
+            throw response.status;
+          } else return response.json();
+        });
+      }
+
+      function deleteLibItem(libItemId) {
+        fetch("http://localhost:5129/LibraryItem/" + libItemId, {
+          method: "DELETE",
+        }).then((response) => {
+          if (!response.ok) {
+            alert("An error has occurred.  Unable to DELETE the TODO item");
+            throw response.status;
+          } else return response.json();
+        });
+      }
+    </script>
+  </body>
+</html>
