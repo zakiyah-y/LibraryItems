@@ -113,7 +113,12 @@
       /* When clicked on, change the background colour and strike out text */
       ul li.checked {
         /* background: #647295; */
-        color: #2b262d;
+        color: #2b262d !important;
+        text-decoration: line-through;
+      }
+      ul li.checked i {
+        /* background: #647295; */
+        color: #2b262d !important;
         text-decoration: line-through;
       }
 
@@ -221,7 +226,7 @@
         padding-left: 5px;
       }
       ul li i {
-        color: #9f496e !important;
+        color: #9f496e;
       }
       .header-div {
         display: flex;
@@ -571,7 +576,7 @@
         document.getElementById("libItemList").appendChild(libItemNode);
 
         let tickSpanNode = document.createElement("SPAN");
-        let tickText = document.createTextNode("\u2713"); // \u2713 is unicode for the tick symbol
+        let tickText = document.createTextNode("\u2705"); // \u2713 is unicode for the tick symbol
         tickSpanNode.appendChild(tickText);
         libItemNode.appendChild(tickSpanNode);
         tickSpanNode.className = "tickHidden";
