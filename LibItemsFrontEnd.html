@@ -112,8 +112,8 @@
 
       /* When clicked on, change the background colour and strike out text */
       ul li.checked {
-        background: #888;
-        color: #f2ebe5;
+        /* background: #647295; */
+        color: #2b262d;
         text-decoration: line-through;
       }
 
@@ -140,10 +140,8 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-      
       }
       .close img {
-
         width: 25px;
         height: 25px;
       }
@@ -156,9 +154,9 @@
         /* border: #2b262d solid 2px; */
         /* display: flex;
         justify-content: center; */
-       /* height: 30px;
+        /* height: 30px;
         width: 30px;  */
-     
+
         /* border-radius: 3px;  */
       }
       .subtitle {
@@ -222,7 +220,7 @@
       .list-header {
         padding-left: 5px;
       }
-      ul li p {
+      ul li i {
         color: #9f496e !important;
       }
       .header-div {
@@ -269,12 +267,25 @@
         margin-right: 8%;
       }
       .bio {
-       font-size: 16px;
-       margin-top: -13px;
-       margin-bottom: -21px;
-      
-       
+        font-size: 16px;
+        margin-top: -13px;
+        margin-bottom: -21px;
+
         /* position:static; */
+      }
+      #searchBar {
+        margin-left: 21px !important;
+        border: none;
+        height: 34px;
+        float: right;
+        text-transform: capitalize;
+        font-size: 16px;
+      }
+      #searchBar:focus-visible {
+        outline: 2px solid #647295;
+      }
+      .hide-list-item {
+        display: none;
       }
     </style>
   </head>
@@ -290,15 +301,13 @@
 ---------------------------------------------------------------------------------------->
     <div class="header">
       <h1>My Library Books</h1>
-      <p class="bio">
-        &#128515; Have fun
-      </p>
+      <p class="bio">&#128515; Have fun</p>
     </div>
     <!-- <p> Please note all library items have a 7 day default booking period</p> -->
     <!-- <hr /> -->
     <div>
       <div class="addItemBg">
-        <div class="header-div" onclick="showList()">
+        <div class="header-div" onclick="showAddItemForm()">
           <img class="arrow-right" src="./images/chevron_right.svg" />
           <img hidden class="arrow-down" src="./images/chevron_down.svg" />
           <h3 class="subtitle">ADD A NEW ITEM</h3>
@@ -364,16 +373,22 @@
 ---------------------------------------------------------------------------------------->
     <div class="libraryItemList">
       <br />
-      <ul id="libItemList">
-        <div class="header-div">
-          <!-- <img class="arrow-right" src="./images/chevron_right.svg" />
+      <div class="header-div">
+        <!-- <img class="arrow-right" src="./images/chevron_right.svg" />
           <img hidden class="arrow-down" src="./images/chevron_down.svg" /> -->
-          <h3 class="list-header">MY LIST OF LIBRARY BOOKS</h3>
-        </div>
+        <h3 class="list-header">MY LIST OF LIBRARY BOOKS</h3>
+        <input
+          id="searchbar"
+          onkeyup="search_libitems()"
+          type="text"
+          name="search"
+          placeholder="Search Items"
+        />
+      </div>
+      <ul id="libItemList">
         <!-- This list is empty at start and is populated by the readLibItems() function
          called by the onload trigger (see the body element above)
      -->
- 
       </ul>
     </div>
 
@@ -381,7 +396,35 @@
   Scripts
 ---------------------------------------------------------------------------------------->
     <script>
-      function showList() {
+      function search_libitems(item) {
+        var input, filter, ul, li, x, i, txtValue;
+        input = document.getElementById("searchbar");
+
+        filter = input.value.toUpperCase();
+        console.log(input.value.toUpperCase()); //see if what we're typing is being converted to upper case
+        ul = document.getElementById("libItemList");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+          // x = ul[i].getElementsByTagName("li")[0];
+          //console.log('test loop')
+          x = li[i].getElementsByTagName("p")[0];
+          txtValue = x.textContent || x.innerText;
+
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+         
+             li[i].style.display = "";
+          //  li[i].classList.toggle("show");
+          } else {
+            // ul.classList.toggle("hide-list-item");
+            li[i].style.display = "none";
+            //li[i].classList.toggle("hide");
+          }
+          // li[i].classList.remove("show");
+          // li[i].classList.remove("hide");
+        }
+      }
+
+      function showAddItemForm() {
         console.log("try a click");
         var element = document.getElementsByClassName("arrow-right");
 
@@ -456,11 +499,13 @@
         //log to console to see what's inside item object
         //  console.log(item)
         let libItemNode = document.createElement("li");
+        const itemName = document.createElement("p");
         let descriptionTextNode = document.createTextNode(item["name"]);
-        libItemNode.appendChild(descriptionTextNode);
+        libItemNode.appendChild(itemName);
+        itemName.appendChild(descriptionTextNode);
 
         //create a p within the list so that i can style it
-        const para = document.createElement("p");
+        const para = document.createElement("i");
         para.innerText = "BOOKED FOR: ";
         libItemNode.appendChild(para);
 
@@ -483,8 +528,6 @@
 
         let closeSpanNode = document.createElement("SPAN");
 
-        
-
         const closeText = document.createElement("img");
         closeText.src = "./images/delete_item.svg";
         closeSpanNode.appendChild(closeText);
@@ -493,7 +536,6 @@
         closeSpanNode.className = "close";
         // closeSpanNode.appendChild(closeText);
         libItemNode.appendChild(closeSpanNode);
-
 
         closeSpanNode.onclick = function (event) {
           // When the use press the "X" button, the click event is normally also passed to its parent element.
