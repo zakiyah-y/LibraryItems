@@ -240,6 +240,16 @@
         /* margin-left: -34px; */
         /* display: block; */
       }
+      .arrow-right2 {
+        width: 20px;
+        height: 20px;
+      }
+      .arrow-down2 {
+        width: 20px;
+        height: 20px;
+        /* margin-left: -34px; */
+        /* display: block; */
+      }
       .hide {
         display: none;
       }
@@ -273,19 +283,34 @@
 
         /* position:static; */
       }
-      #searchBar {
-        margin-left: 21px !important;
+      #searchbar {
+        margin-left: 34px !important;
         border: none;
         height: 34px;
-        float: right;
         text-transform: capitalize;
         font-size: 16px;
+        padding: 5px;
+       /* margin-top: 25px; */
+       width: 406px;
+        
       }
-      #searchBar:focus-visible {
+      .search-container {
+
+        padding-top: 21px;
+        padding-bottom: 55px;
+      }
+      #searchbar:focus-visible {
         outline: 2px solid #647295;
       }
       .hide-list-item {
         display: none;
+      }
+      .header-container {
+        display: flex;
+
+      }
+      .search-container label {
+        margin-left: 34px;
       }
     </style>
   </head>
@@ -373,19 +398,28 @@
 ---------------------------------------------------------------------------------------->
     <div class="libraryItemList">
       <br />
-      <div class="header-div">
-        <!-- <img class="arrow-right" src="./images/chevron_right.svg" />
-          <img hidden class="arrow-down" src="./images/chevron_down.svg" /> -->
+     
+      <div class="header-div" onclick="showList()">
+        <img class="arrow-right2" src="./images/chevron_right.svg" />
+          <img hidden class="arrow-down2" src="./images/chevron_down.svg" />
         <h3 class="list-header">MY LIST OF LIBRARY BOOKS</h3>
+      </div>
+      
+      <ul hidden id="libItemList" class="item-list">
+        <div class="search-container">
+          <label for="search"
+          >Search</label
+        >
+        <br />
+       
         <input
           id="searchbar"
           onkeyup="search_libitems()"
           type="text"
           name="search"
-          placeholder="Search Items"
+        
         />
-      </div>
-      <ul id="libItemList">
+      </div> 
         <!-- This list is empty at start and is populated by the readLibItems() function
          called by the onload trigger (see the body element above)
      -->
@@ -445,6 +479,28 @@
           showForm.item(i).classList.toggle("show");
         }
       }
+        
+        function showList() {
+        var element2 = document.getElementsByClassName("arrow-right2");
+
+        //call the item to access an element by its index
+        for (let i = 0; i < element2.length; i += 1) {
+          element2.item(i).classList.toggle("hide");
+          //hide the right arrow
+        }
+
+        var arrowDown2 = document.getElementsByClassName("arrow-down2");
+
+        for (let i = 0; i < arrowDown2.length; i += 1) {
+          arrowDown2.item(i).classList.toggle("show");
+        }
+   
+        var showList = document.getElementsByClassName("item-list");
+        for (let i = 0; i < showList.length; i += 1) {
+          showList.item(i).classList.toggle("show");
+        }
+      }
+    
       /****************************************************************************
        * Add a new TodoItem.
        *
