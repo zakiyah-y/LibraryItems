@@ -1,14 +1,18 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This is a simple C# CRUD application based on library book items which involves a frontend website (created using HTML and JS) communicating with a database using a REST API. The user is able to create, update, search and delete a library item. 
+
+### Use Case Diagram
+![Use case image](https://dev.azure.com/zakiyahyaqoob0511/_git/NewOrg?path=/images/use_case)
+
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
+Ensure you have Visual Studio Code, Visual Studio
+1.	Clone the project using your preferred method (HTTPS or SSH)
 2.	Software dependencies
 3.	Latest releases
 4.	API references
-# zakiyah test
-## let's test another change 
+
+
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
 
