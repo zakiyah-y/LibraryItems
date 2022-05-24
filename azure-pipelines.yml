@@ -10,10 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Helloo, world!
+- script: git push -f origin
   displayName: 'Run a one-line script'
-- bash: 
-   git push -f origin 
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
