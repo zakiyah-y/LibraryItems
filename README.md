@@ -31,6 +31,11 @@ This is a simple C# CRUD application based on library book items which involves 
 
 ### Entity Relationship Diagram 
 
+This entity relationship shows the relationship between my database.
+![Entity Relationship diagram](./images/ER%20Diagram.png)
+
+Below I have explained why my database and the tables within it are part of a one-to-many relationship.
+![Entity Relationship diagram with explanation](./images/ER%20Diagram%20Explanation.png)
 ## Wireframes and Screen Designs
 These screens were created in Adobe XD.
 When designing these screens, the Fibonnacci sequence and the [Golden Ratio](https://clevelanddesign.com/insights/the-nature-of-design-the-fibonacci-sequence-and-the-golden-ratio/#:~:text=The%20Golden%20Ratio%20is%20a,subconscious%20mind%20is%20attracted%20to.) was used in order to create a visually appealing website and pleasing more enjoyable user experience,.
