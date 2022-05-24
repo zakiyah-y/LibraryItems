@@ -1,19 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibraryItems.Models
 {
-    public class LibraryItem
+    public class Library
     {
-
-
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Name is required")]
+        [Required(ErrorMessage = "Library Name is required")]
         [MaxLength(64, ErrorMessage = "Length of name cannot be greater than 64 characters")]
         [MinLength(2, ErrorMessage = "Length of name cannot be less than 2 characters")]
-        public string? Name { get; set; }
+        public string? LibraryName { get; set; }
 
         [Required(ErrorMessage = "Description is required")]
         [MaxLength(64, ErrorMessage = "Length of description cannot be greater than 64 characters")]
@@ -24,18 +21,8 @@ namespace LibraryItems.Models
         public string? Location { get; set; }
 
 
-        [Required(ErrorMessage = "Length of booking is required")]
-        public int? LengthOfBooking { get; set; }
 
-        //[ForeignKey("LibraryID")]
-        //public Library LibraryId { get; set; }
-
-
-
-
-
-
-
-
+        //[Required(ErrorMessage = "Length of booking is required")]
+        //public int? LengthOfBooking { get; set; }
     }
 }

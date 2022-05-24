@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uUmnFsZwpKgWtfRUFABtnUIuClNPRfts6bdrmp4qjrYRBdGighQxAXdHzhnm2dMDHxMOTwYACpTmx1R/FY2QGg==",
+  "dgSpecHash": "6j3Mh4yaWI9NIR/I74wSDoElEZt9OkMwtdLOQRU8d1wP39aIlaMaG2KhwbU99Pya7qxXReAwQnRf0qhahmFPng==",
   "success": true,
-  "projectFilePath": "C:\\SelfStudyProjectMay\\NewOrg\\LibraryItems\\LibraryItems\\LibraryItems.csproj",
+  "projectFilePath": "C:\\SelfStudyProjectMay\\NewProject\\LibraryItems\\LibraryItems\\LibraryItems\\LibraryItems.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zakiyah.yaqoob\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\zakiyah.yaqoob\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

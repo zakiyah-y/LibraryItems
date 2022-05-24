@@ -2062,11 +2062,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SelfStudyProjectMay\\NewOrg\\LibraryItems\\LibraryItems\\LibraryItems.csproj",
+      "projectUniqueName": "C:\\SelfStudyProjectMay\\NewProject\\LibraryItems\\LibraryItems\\LibraryItems\\LibraryItems.csproj",
       "projectName": "LibraryItems",
-      "projectPath": "C:\\SelfStudyProjectMay\\NewOrg\\LibraryItems\\LibraryItems\\LibraryItems.csproj",
+      "projectPath": "C:\\SelfStudyProjectMay\\NewProject\\LibraryItems\\LibraryItems\\LibraryItems\\LibraryItems.csproj",
       "packagesPath": "C:\\Users\\zakiyah.yaqoob\\.nuget\\packages\\",
-      "outputPath": "C:\\SelfStudyProjectMay\\NewOrg\\LibraryItems\\LibraryItems\\obj\\",
+      "outputPath": "C:\\SelfStudyProjectMay\\NewProject\\LibraryItems\\LibraryItems\\LibraryItems\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\zakiyah.yaqoob\\AppData\\Roaming\\NuGet\\NuGet.Config",

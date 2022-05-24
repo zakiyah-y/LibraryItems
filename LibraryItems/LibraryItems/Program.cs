@@ -13,6 +13,8 @@ builder.Services.AddDbContext<LibraryItemContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ICrudRepository<LibraryItem, int>, LibItemRepository>();
 builder.Services.AddScoped<ICrudService<LibraryItem, int>, LibraryItemService>();
+builder.Services.AddScoped<ICrudRepository<Library, int>, LibraryRepository>();
+builder.Services.AddScoped<ICrudService<Library, int>, LibraryService>();
 
 builder.Services.AddCors(options =>
 {

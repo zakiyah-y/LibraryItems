@@ -9,5 +9,8 @@ namespace LibraryItems.Data
         {
         }
         public DbSet<LibraryItem> LibraryItems { get; set; }
+
+       
+        public DbSet<Library> Libraries { get; set; }
     }
 }
