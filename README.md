@@ -64,19 +64,18 @@ To delete an item, the user should hover over the item they'd like to delete and
 
 # Cloning this Project
 Ensure you have Visual Studio Code, Visual Studio
-1.	Clone the project using your preferred method (HTTPS or SSH)
-2.	Open this ![file](./LibraryItems/LibraryItems/bin/Release/net6.0/LibraryItems.exe)
-3.	Once you have the above file up and running, we can open up the ![html](./LibItemsFrontEnd.html) which is what the user will see
+1.	Clone the project using your preferred method (HTTPS or SSH).
+2.	Open this ```/LibraryItems/LibraryItems/bin/Release/net6.0/LibraryItems.exe``` file
+3.	Once you have the above file up and running, we can open up ```./LibItemsFrontEnd.html``` which is what the user will see
 4.	From here, the user will be able to interact with the website to add, delete, view and update their library book items
 
 
 # Testing
-TODO: Describe and show how to build your code and run the tests. 
+Unit tests written in C# 
 
 # Risk Assessment
-TODO: Explain how other users and developers can contribute to make your code better. 
+Some risks encountered whilst buiding this project.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+### Issues in Azure DevOps
+
+
