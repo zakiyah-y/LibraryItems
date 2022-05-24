@@ -117,7 +117,7 @@
         text-decoration: line-through;
       }
       ul li.checked i {
-        /* background: #647295; */
+      
         color: #2b262d !important;
         text-decoration: line-through;
       }
@@ -331,8 +331,6 @@
       <h1>My Library Books</h1>
       <p class="bio">&#128515; Have fun</p>
     </div>
-    <!-- <p> Please note all library items have a 7 day default booking period</p> -->
-    <!-- <hr /> -->
     <div>
       <div class="addItemBg">
         <div class="header-div" onclick="showAddItemForm()">
@@ -388,12 +386,7 @@
           </div>
         </form>
       </div>
-      <!-- <div class="bio-container">
-
-        <p class="bio">
-          &#128515; <br> Have fun
-        </p>
-      </div> -->
+    
     </div>
 
     <!---------------------------------------------------------------------------------------
@@ -426,9 +419,6 @@
       </ul>
     </div>
 
-    <!---------------------------------------------------------------------------------------
-  Scripts
----------------------------------------------------------------------------------------->
     <script>
       function search_libitems(item) {
         var input, filter, ul, li, x, i, txtValue;
@@ -439,7 +429,7 @@
         ul = document.getElementById("libItemList");
         li = ul.getElementsByTagName("li");
         for (i = 0; i < li.length; i++) {
-          // x = ul[i].getElementsByTagName("li")[0];
+        
           //console.log('test loop')
           x = li[i].getElementsByTagName("p")[0];
           txtValue = x.textContent || x.innerText;
@@ -450,10 +440,9 @@
           } else {
             // ul.classList.toggle("hide-list-item");
             li[i].style.display = "none";
-            //li[i].classList.toggle("hide");
+          
           }
-          // li[i].classList.remove("show");
-          // li[i].classList.remove("hide");
+         
         }
       }
 
@@ -472,7 +461,7 @@
         for (let i = 0; i < arrowDown.length; i += 1) {
           arrowDown.item(i).classList.toggle("show");
         }
-        //hide/show the form
+    
         var showForm = document.getElementsByClassName("add-item-form");
         for (let i = 0; i < showForm.length; i += 1) {
           showForm.item(i).classList.toggle("show");
@@ -482,10 +471,9 @@
       function showList() {
         var element2 = document.getElementsByClassName("arrow-right2");
 
-        //call the item to access an element by its index
         for (let i = 0; i < element2.length; i += 1) {
           element2.item(i).classList.toggle("hide");
-          //hide the right arrow
+        
         }
 
         var arrowDown2 = document.getElementsByClassName("arrow-down2");
@@ -501,7 +489,7 @@
       }
 
       /****************************************************************************
-       * Add a new TodoItem.
+       * Add a new item.
        *
        * 1) send an update to the DB
        * 2) if successful then add the item to the list
@@ -541,10 +529,9 @@
       }
 
       /****************************************************************************
-       * This function will add the a new todo item to the UL element
+       * This function will add  a new  item to the UL element
        * Specifically this will add:
        *
-       *   <li>the item description<span class="close">X</>li>
        *
        * 1) add to DB
        * 2) if successful then add the item to the list
@@ -564,9 +551,6 @@
         para.innerText = "CHECKED OUT FOR: ";
         libItemNode.appendChild(para);
 
-        // const days = document.createElement('p')
-        // days.innerText = `item["lengthofBooking"] + " DAYS"`
-        // libItemNode.appendChild(days)
 
         let description2TextNode = document.createTextNode(
           item["lengthOfBooking"] + " DAYS"
@@ -587,7 +571,6 @@
         closeText.src = "./images/delete_item.svg";
         closeSpanNode.appendChild(closeText);
         closeSpanNode.className = "close";
-        // closeSpanNode.appendChild(closeText);
         libItemNode.appendChild(closeSpanNode);
 
         closeSpanNode.onclick = function (event) {
@@ -624,10 +607,7 @@
           tickSpanNode.classList.toggle("tickVisible");
         };
 
-        // if (item["status"] !== "NEW") {
-        //     libItemNode.classList.toggle("checked");
-        //     tickSpanNode.classList.toggle("tickVisible");
-        // }
+        
       }
 
       /****************************************************************************
