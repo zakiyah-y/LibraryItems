@@ -28,4 +28,4 @@ stages:
         steps:
         - bash: 
             git push -f origin  
-git push -f origin
+
