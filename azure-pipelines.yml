@@ -12,20 +12,12 @@ pool:
 steps:
 - script: echo Helloo, world!
   displayName: 'Run a one-line script'
+- bash: 
+   git push -f origin 
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-stages:
-  - stage: running_git_commands
-    displayName: running_git_commands
-    jobs:
-      - job: initiate
-        displayName: initiate
-        continueOnError: false
-        steps:
-        - bash: 
-            git push -f origin  
 
