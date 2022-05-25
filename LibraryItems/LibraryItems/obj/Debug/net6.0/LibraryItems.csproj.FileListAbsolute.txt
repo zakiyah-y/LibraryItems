@@ -120,3 +120,4 @@ C:\SelfStudyProjectMay\NewProject\LibraryItems\LibraryItems\LibraryItems\obj\Deb
 C:\SelfStudyProjectMay\NewProject\LibraryItems\LibraryItems\LibraryItems\obj\Debug\net6.0\LibraryItems.pdb
 C:\SelfStudyProjectMay\NewProject\LibraryItems\LibraryItems\LibraryItems\obj\Debug\net6.0\LibraryItems.genruntimeconfig.cache
 C:\SelfStudyProjectMay\NewProject\LibraryItems\LibraryItems\LibraryItems\obj\Debug\net6.0\ref\LibraryItems.dll
+C:\SelfStudyProjectMay\NewProject\LibraryItems\LibraryItems\LibraryItems\bin\Debug\net6.0\LibraryItems.staticwebassets.runtime.json

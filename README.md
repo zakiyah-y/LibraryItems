@@ -42,31 +42,31 @@ When designing these screens, the Fibonnacci sequence and the [Golden Ratio](htt
 
 The icons used in these designs were taken from https://fonts.google.com/icons which is a free icon library provided by Google.
 
-### Home and Search Screen:
+### Home and Search Screen Design:
 This is the landing page, the first page that the user will see once they land onto my website. On this screen there is a collapsible form that was built using JavaScript, the user is able to add a new item by filling out this form. 
 
 Once adding an item, it will appear in the list below and will also appear in the database.
 
 ![Home screen](./images/Search_Home%20screen.png)
 
-### Update Screen:
+### Update Screen Design:
 The user is able to update their list of books by clicking on any item on the list. Once they have clicked on an item, a tick emoji will appear as well as a line striking through all of the text in that row.
 
 Once updated, the number of days the item has been ```'checked out for'``` will change to 0, this will also be reflected in the database holding all of the library items. 
 
 ![Update screen](./images/Updated%20List%20screen.png)
 
-### Delete Screen:
+### Delete Screen Design:
 To delete an item, the user should hover over the item they'd like to delete and then click on the delete icon. After clicking on the delete icon, an alert dialog will appear asking the user to confirm their deletion, once the item has been deleted it will be removed from their list of library books and will also be removed from the database. 
 
 ![Delete screen](./images/Delete%20Screen.png)
 
 
-# Cloning this Project
+# Running and Cloning This Project
 Ensure you have Visual Studio Code, Visual Studio
 1.	Clone the project using your preferred method (HTTPS or SSH).
-2.	Open this ```/LibraryItems/LibraryItems/bin/Release/net6.0/LibraryItems.exe``` file
-3.	Once you have the above file up and running, we can open up ```./LibItemsFrontEnd.html``` which is what the user will see
+2.	Open this ```./LibraryItems/LibraryItems.sln``` solution in Visual Studio
+3.	Once you have the solution and running, a browser window should appear. Change the URL to ```http://localhost:5000/LibItemsFrontend.html``` 
 4.	From here, the user will be able to interact with the website to add, delete, view and update their library book items
 
 
