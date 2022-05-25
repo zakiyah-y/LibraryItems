@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EchhwkJ9kyzTm/VSWdlV7PPXSTettcqiUdObhwnLC5s=",
+  "Hash": "8DjIktMY78Z3ve2hQDlaHTd6j2fsbSwUl3gTwiOqS9Q=",
   "Source": "LibraryItems",
   "BasePath": "_content/LibraryItems",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\delete_item.svg"
+    },
+    {
+      "Identity": "C:\\SelfStudyProjectMay\\NewProject\\LibraryItems\\LibraryItems\\LibraryItems\\wwwroot\\images\\favicon.png",
+      "SourceId": "LibraryItems",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\SelfStudyProjectMay\\NewProject\\LibraryItems\\LibraryItems\\LibraryItems\\wwwroot\\",
+      "BasePath": "_content/LibraryItems",
+      "RelativePath": "images/favicon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\favicon.png"
     },
     {
       "Identity": "C:\\SelfStudyProjectMay\\NewProject\\LibraryItems\\LibraryItems\\LibraryItems\\wwwroot\\LibItemsFrontEnd.html",
