@@ -4,9 +4,12 @@ This ReadMe follows the following structure:
 - [Introduction](#introduction)
 - [Diagrams](#diagrams)
 - [Wireframes and Screen Designs](#wireframes-and-screen-designs)
-- How to clone this project
-- Risk assessment
+- [How to run and clone this project](#running-and-cloning-this-project)
+- [Risk assessment](#risk-assessment)
 
+# Domain For My Library Item Application
+ ### Try out my application [here](https://zakiyahlibrarywebapp.azurewebsites.net/LibItemsFrontend.html)
+ https://zakiyahlibrarywebapp.azurewebsites.net/LibItemsFrontend.html
 # Introduction 
 This is a simple C# CRUD application based on library book items which involves a frontend website (created using HTML and JS) communicating with a database using a REST API. The user is able to create, update, search and delete a library item. 
 
