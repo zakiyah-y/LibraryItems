@@ -1,0 +1,251 @@
+body {
+  margin-left: 34px;
+  min-width: 720px;
+  font-family: "Century Gothic", "Arial", "sans-serif";
+  background-color: #f2ebe5;
+  color: #647295;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  color: #647295;
+
+  margin-left: 21px;
+  font-family: "Century Gothic", "Arial", "sans-serif";
+  font-size: 21px;
+}
+
+input {
+  margin: 0;
+  border: 1px solid #647295;
+  border-radius: 5px;
+
+  float: left;
+  font-size: 16px;
+  font-family: "Century Gothic", "Arial", "sans-serif";
+  color: #647295;
+}
+
+.addButton {
+  float: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background-color: #647295;
+}
+
+label {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  cursor: pointer;
+
+  list-style-type: none;
+
+  font-size: 16px;
+  text-transform: uppercase;
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 21px;
+  font-family: "Century Gothic", "Arial", "sans-serif";
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul li:hover {
+  background-color: #f2ebe5;
+}
+
+ul li.checked {
+  color: #2b262d !important;
+  text-decoration: line-through;
+}
+ul li.checked i {
+  color: #2b262d !important;
+  text-decoration: line-through;
+}
+
+.tickHidden {
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  visibility: hidden;
+}
+
+.tickVisible {
+  visibility: visible;
+}
+
+.close {
+  float: right;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.close img {
+  width: 25px;
+  height: 25px;
+}
+
+.close:hover {
+  /* background-color: white; */
+}
+.subtitle {
+  font-size: 17px;
+  padding-left: 5px;
+}
+
+.inputText {
+  border-radius: 8px;
+  border: none;
+  width: 406px;
+  height: 38px;
+  color: #647295;
+}
+.inputText:focus-visible {
+  outline: 2px solid #647295;
+}
+.textArea {
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Century Gothic", "Arial", "sans-serif";
+  color: #647295;
+  max-width: 406px;
+}
+.textArea:focus-visible {
+  outline: 2px solid #647295;
+}
+.addButton {
+  background-color: #2b262d;
+  color: #f2ebe5;
+  text-transform: uppercase;
+  font-weight: bold;
+  width: 406px;
+  height: 38px;
+  align-items: center;
+  margin-top: 13px;
+}
+.libraryItemList {
+  color: #647295;
+  margin-left: 21px;
+  margin-top: 34px;
+  background-color: rgba(100, 114, 149, 0.17);
+  border-radius: 10px;
+  padding-bottom: 21px;
+  margin-right: 34px;
+}
+.addItemBg {
+  color: #647295;
+  margin-left: 21px;
+  margin-top: 55px;
+  background-color: rgba(100, 114, 149, 0.17);
+  border-radius: 10px;
+  padding-bottom: 75px;
+  width: 525px;
+}
+.list-header {
+  padding-left: 5px;
+}
+ul li p:nth-child(2) {
+  color: #9f496e;
+  margin-left: -15px;
+}
+.header-div {
+  display: flex;
+  align-items: center;
+  margin-left: 21px;
+  padding-top: 13px;
+  cursor: pointer;
+}
+.arrow-right {
+  width: 20px;
+  height: 20px;
+}
+.arrow-down {
+  width: 20px;
+  height: 20px;
+}
+.arrow-right2 {
+  width: 20px;
+  height: 20px;
+}
+.arrow-down2 {
+  width: 20px;
+  height: 20px;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+ul li {
+  border-bottom: #f2ebe5 solid 1px;
+}
+.small-text {
+  font-size: 14px;
+}
+#form1 {
+  padding-left: 55px;
+}
+.blob-container {
+  display: table-caption;
+}
+.blob {
+  width: 350px;
+  height: 250px;
+  float: right;
+  margin-top: -34%;
+  margin-right: 8%;
+}
+.bio {
+  font-size: 16px;
+  margin-top: -13px;
+  margin-bottom: -21px;
+}
+#searchbar {
+  margin-left: 34px !important;
+  border: none;
+  height: 34px;
+  text-transform: capitalize;
+  font-size: 16px;
+  padding: 5px;
+
+  width: 406px;
+}
+.search-container {
+  padding-top: 21px;
+  padding-bottom: 55px;
+  border-bottom: 1px solid white;
+}
+#searchbar:focus-visible {
+  outline: 2px solid #647295;
+}
+.hide-list-item {
+  display: none;
+}
+.header-container {
+  display: flex;
+}
+.search-container label {
+  margin-left: 34px;
+}
+li p:nth-child(3) {
+  margin-left: -35px !important;
+}
