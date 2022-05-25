@@ -72,13 +72,20 @@ Ensure you have Visual Studio Code, Visual Studio
 3.	Once you have the solution and running, a browser window should appear. Change the URL to ```http://localhost:5000/LibItemsFrontend.html``` 
 4.	From here, the user will be able to interact with the website to add, delete, view and update their library book items
 
+Or if you'd just like to play around with the project you can visit it [here](https://zakiyahlibrarywebapp.azurewebsites.net/LibItemsFrontend.html) :)
+
 
 # Testing
 Unit tests written in C# 
 
 # Risk Assessment
 Some risks encountered whilst buiding this project.
-
 ### Issues in Azure DevOps
+Having 2 repos of the same project (one hosted in Azure DevOps and one in GitHub) caused me some problems. The biggest problem this gave me was whenever I was pushing new changes, it would only update the repo in GitHub and not the repo I had set up in Azure DevOps. In order to tackle this problem I ran the following commands in my terminal within the directory of this project 
+- ``` git remote ```, running this command returned ```origin``` 
+- then I typed in ```git remote add ADO URL-TO-MY REPO-IN-AZURE-DEVOPS-HERE```, this added a new remote pointing to the one in my DevOps
+- by typing in ```git remote ``` again it should output ```ADO``` and ```origin```
+- then I had typed in ```git pull ADO main``` to ensure this repo was up to date with all the changes I made that were currently only on the GitHub repo
+- after typing in ```git push ADO``` the problem had been resolved and I was able to see my changes in both repos
 
 
