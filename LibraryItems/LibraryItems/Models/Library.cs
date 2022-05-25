@@ -21,8 +21,5 @@ namespace LibraryItems.Models
         public string? Location { get; set; }
 
 
-
-        //[Required(ErrorMessage = "Length of booking is required")]
-        //public int? LengthOfBooking { get; set; }
     }
 }

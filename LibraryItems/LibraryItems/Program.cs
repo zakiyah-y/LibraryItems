@@ -31,28 +31,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 
-/*
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "LibraryItemRestAPI",
-        Version =
-    "v1"
-    });
-});
-*/
-
 var app = builder.Build();
 
-/* app.UseCors(MyAllowSpecificOrigins);//To EnableCors - CrossOrigin
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-} */
 app.UseDefaultFiles();
 
 app.UseStaticFiles();
@@ -61,4 +41,15 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+UpdateDatabase(app);
+
 app.Run();
+
+ static void UpdateDatabase(IApplicationBuilder app)
+{
+    using var serviceScope = app.ApplicationServices
+        .GetRequiredService<IServiceScopeFactory>()
+        .CreateScope();
+    using var context = serviceScope.ServiceProvider.GetService<LibraryItemContext>();
+    context.Database.Migrate();
+}

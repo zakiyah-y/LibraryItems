@@ -27,8 +27,6 @@ namespace LibraryItems.Models
         [Required(ErrorMessage = "Length of booking is required")]
         public int? LengthOfBooking { get; set; }
 
-        //[ForeignKey("LibraryID")]
-        //public Library LibraryId { get; set; }
 
 
 

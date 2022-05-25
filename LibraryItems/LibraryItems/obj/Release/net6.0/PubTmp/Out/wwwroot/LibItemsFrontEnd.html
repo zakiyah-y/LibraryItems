@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="copyright" content="QA http://www.qa.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+
+    <title>Library Items</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <!---------------------------------------------------------------------------------------
+  A onload trigger is added to the body which will call the readLibItems() function
+  which will in turn send a REST API GET request to the microservice to read the lib list
+  from the DB
+---------------------------------------------------------------------------------------->
+  <body onload="readLibItems()">
+    <div class="header">
+      <h1>My Library Books</h1>
+      <p class="bio">&#128515; Have fun</p>
+    </div>
+    <div>
+      <div class="addItemBg">
+        <div class="header-div" onclick="showAddItemForm()">
+          <img class="arrow-right" src="./images/chevron_right.svg" />
+          <img hidden class="arrow-down" src="./images/chevron_down.svg" />
+          <h3 class="subtitle">ADD A NEW ITEM</h3>
+        </div>
+        <form
+          autocomplete="off"
+          hidden
+          class="add-item-form"
+          id="form1"
+          action="javascript:addNewLibItem()"
+        >
+          <p class="small-text">
+            Fields marked with an asterisk (*) are required
+          </p>
+          <label for="newLibItemName">NAME*</label><br />
+          <input
+            type="text"
+            id="newLibItemName"
+            value=""
+            class="inputText"
+          /><br />
+
+          <br />
+          <label for="newLibItemDesc"> Description*</label>
+          <br />
+
+          <textarea id="newLibItemDesc" rows="4" cols="53" class="textArea">
+          </textarea>
+          <br />
+          <label for="newLibItemLocation">Location checked out from*</label>
+          <br />
+          <input type="text" id="newLibItemLocation" class="inputText" />
+          <br />
+          <br />
+
+          <label for="newLibItemLengthOfBooking"
+            >Length of booking (in days)*</label
+          >
+          <br />
+          <input
+            type="number"
+            id="newLibItemLengthOfBooking"
+            class="inputText"
+          />
+          <br />
+          <br />
+
+          <div>
+            <input type="submit" value="Add Item" class="addButton" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="libraryItemList">
+      <br />
+
+      <div class="header-div" onclick="showList()">
+        <img class="arrow-right2" src="./images/chevron_right.svg" />
+        <img hidden class="arrow-down2" src="./images/chevron_down.svg" />
+        <h3 class="list-header">MY LIST OF LIBRARY BOOKS</h3>
+      </div>
+
+      <ul hidden id="libItemList" class="item-list">
+        <div class="search-container">
+          <label for="search">Search</label>
+          <br />
+
+          <input
+            id="searchbar"
+            onkeyup="search_libitems()"
+            type="text"
+            name="search"
+          />
+        </div>
+        <!-- This list is empty at start and is populated by the readLibItems() function
+         called by the onload trigger (see the body element above)
+     -->
+      </ul>
+    </div>
+
+    <script src="./scripts.js"></script>
+  </body>
+</html>

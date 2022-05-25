@@ -165,7 +165,6 @@ function addLibItemToDisplay(item) {
 
     updateLibItem(item);
 
-    // }
 
     libItemNode.classList.toggle("checked");
     tickSpanNode.classList.toggle("tickVisible");
@@ -197,7 +196,7 @@ function createLibItem(
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(newItem),
   };
-  fetch("http://localhost:5000/LibraryItem", requestOptions)
+  fetch("/LibraryItem", requestOptions)
     // get the JSON content from the response
     .then((response) => {
       if (!response.ok) {
@@ -212,7 +211,7 @@ function createLibItem(
 
 // Load the list - expecting an array of todo_items to be returned
 function readLibItems() {
-  fetch("http://localhost:5000/LibraryItem")
+  fetch("/LibraryItem")
     // get the JSON content from the response
     .then((response) => {
       if (!response.ok) {
@@ -232,7 +231,7 @@ function updateLibItem(item) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(item),
   };
-  fetch("http://localhost:5000/LibraryItem/" + item.id, requestOptions).then(
+  fetch("/LibraryItem/" + item.id, requestOptions).then(
     (response) => {
       if (!response.ok) {
         alert("An error has occurred.  Unable to UPDATE the library item");
@@ -243,7 +242,7 @@ function updateLibItem(item) {
 }
 
 function deleteLibItem(libItemId) {
-  fetch("http://localhost:5000/LibraryItem/" + libItemId, {
+  fetch("/LibraryItem/" + libItemId, {
     method: "DELETE",
   }).then((response) => {
     if (!response.ok) {
