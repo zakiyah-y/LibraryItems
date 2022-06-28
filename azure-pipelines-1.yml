@@ -5,20 +5,15 @@
 
 trigger:
 - main
-
 pool:
   vmImage: ubuntu-latest
-
-variables:
-  buildConfiguration: 'Release'
-
 steps:
-- script: dotnet build **/*.sln
-  displayName: 'dotnet build $(buildConfiguration)'
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet publish $(buildConfiguration)'
   inputs:
     command: publish
     publishWebProjects: True
-    arguments:  '**/LibraryItems.csproj --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
+  
+- task: PublishBuildArtifacts@1
+  displayName: 'publish artifacts'
